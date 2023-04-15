@@ -7,7 +7,7 @@
         <div class="flex flex-row">
           <div class="w-[180px] mr-32">
             <router-link to="/" class="block ">
-              <img src="./assets/logo.png" alt="Логотип" class=" block h-[110px] w-[123px]">
+              <img src="./assets/logo.png" alt="Логотип" class=" block h-[110px] w-[110px]">
             </router-link>
           </div>
 
@@ -39,7 +39,7 @@
 
             <div  class="flex justify-end">
 
-              <button type="button" class="mr-6 text-black py-0 px-6 block flex justify-items items-center  rounded-md border border-transparent bg-white">
+              <button v-on:click="visibleCatalogDesktop=!visibleCatalogDesktop" type="button" class="mr-6 text-black py-0 px-6 block flex justify-items items-center  rounded-md border border-transparent bg-white">
                 <span class="mr-8 text-[18px]">
                   Каталог
                 </span>
@@ -94,6 +94,68 @@
     </header>
 
 
+    <!-- РАЗВЕРНУТЫЙ КАТАЛОГ DESKTOP HEADER -->
+
+    <div v-if="visibleCatalogDesktop" class="w-full bg-white h-[500px] shadow-lg shadow-gray-500/40 mb-10 flex justify-center p-10">
+      <div class="flex flex-col mr-32 text-[20px]">
+              <a class="mb-2">
+                Гитары
+              </a>
+              <a class="mb-2">
+                Укулеле
+              </a>
+              <a class="mb-2">
+                Клавишные инструменты
+              </a>
+              <a>
+                Ударные инструменты
+              </a>
+              <a>
+                Духовые инструменты
+              </a>
+              <a>
+                Аккордеоны, баяны, гармони
+              </a>
+              <a>
+                Смычковые инструменты
+              </a>
+              <a>
+                Микрофоны и радиосистемы
+              </a>
+              <a>
+                Студийное оборудование
+              </a>
+      </div>
+
+      <div class="flex flex-col text-[18px]">
+        <a href="#">
+          Акустические гитары
+        </a>
+        <a href="#">
+          Электрогитары
+        </a>
+        <a href="#">
+          Классические гитары
+        </a>
+        <a href="#">
+          Бас-гитары
+        </a>
+        <a href="#">
+          Струны
+        </a>
+        <a href="#">
+          Усилители для гитар
+        </a>
+        <a href="#">
+          Чехлы и кейсы
+        </a>
+        <a href="#">
+          Тюнеры и кейсы
+        </a>
+      </div>
+    </div>
+
+
 
 <!-- МОБИЛЬНАЯ ВЕРСИЯ HEADER -->
 
@@ -139,7 +201,7 @@
 
 
     <!-- ОТКРЫТОЕ МЕНЮ МОБИЛЬНОЙ ВЕРСИИ -->
-    <div v-if="visibleMenu" class="z-10 fixed bg-white h-full w-full text-[20px] flex flex-col items-center p-6">
+    <div v-if="visibleMenu" class="z-10 fixed bg-white h-full w-full text-[20px] flex flex-col items-start p-6 pl-10 overflow-y-scroll">
 
       <button v-on:click="visibleMenu=!visibleMenu" class="self-end">
         <svg   width="21" height="21" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -176,22 +238,34 @@
                 
               </button>
         </div>
-        <div v-if="visibleCatalog" class="mb-8">
-              <p class="mb-2">
-                Где мой заказ?
-              </p>
-              <p class="mb-2">
-                Горячая линия
-              </p>
-              <p class="mb-2">
-                Как сделать заказ
-              </p>
-              <p class="mb-2">
-                Покупка в кредит
-              </p>
-              <p>
-                Гарантия
-              </p>
+        <div v-if="visibleCatalog" class="flex flex-col items-start mb-8 ml-6">
+              <a class="mb-2">
+                Гитары
+              </a>
+              <a class="mb-2">
+                Укулеле
+              </a>
+              <a class="mb-2">
+                Клавишные инструменты
+              </a>
+              <a>
+                Ударные инструменты
+              </a>
+              <a>
+                Духовые инструменты
+              </a>
+              <a>
+                Аккордеоны, баяны, гармони
+              </a>
+              <a>
+                Смычковые инструменты
+              </a>
+              <a>
+                Микрофоны и радиосистемы
+              </a>
+              <a>
+                Студийное оборудование
+              </a>
           </div>
 
 
@@ -279,11 +353,11 @@
 
 
     <!-- МОБИЛЬНАЯ ВЕРСИЯ FOOTER -->
-    <footer class="text-white text-[20px] min-h-80 bg-gradient-to-t from-[#220000] to-[#580005] to-43.47% flex flex-col items-items- justify-between p-12 lg:hidden">
+    <footer class="text-white text-[16px] min-h-80 bg-gradient-to-t from-[#220000] to-[#580005] to-43.47% flex flex-col items-items- justify-between p-12 lg:hidden">
 
           <div class="mb-8">
             <div class="flex mb-6 mr-6">
-              <p class="text-[24px] font-medium">
+              <p class="text-[18px] font-medium">
                 Покупателям
               </p>
 
@@ -322,7 +396,7 @@
 
         <div class="mb-8">
             <div class="flex mb-6 mr-6">
-              <p class="text-[24px] font-medium">
+              <p class="text-[18px] font-medium">
                 Сотрудничество
               </p>
 
@@ -388,6 +462,7 @@ import './assets/tailwind.css';
       visibleSotrud: false,
       visibleCatalog: false,
       visibleMenu: false,
+      visibleCatalogDesktop: false,
     }),
  }
 
