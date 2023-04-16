@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div id="CatalogSection">
         <p>Это страница раздела каталога</p>
     </div>
 </template>
     
-    <script>
+<script>
     export default {
         name: "CatalogSection",
     
     }
-    </script>
+</script>
