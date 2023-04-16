@@ -2,7 +2,7 @@
     <div>
         <p>Это страница раздела каталога</p>
     </div>
-    </template>
+</template>
     
     <script>
     export default {
