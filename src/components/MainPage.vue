@@ -4,8 +4,8 @@
 
         <CarouselUniversal v-bind:photos="state.photosCarousel"/>
         
-        <p class="text-[24px] ml-20 mb-6">Возможно, вам понравится</p>
-        <div class="mb-20 flex justify-center">
+        <p class="text-[24px] ml-20 mb-6 ">Возможно, вам понравится</p>
+        <div class="mb-20 flex justify-center flex-wrap">
             <CardsItem
                 v-bind:cards="state.CardsYouEnjoy"
             />
@@ -13,7 +13,7 @@
     
     
         <p class="text-[24px] ml-20 mb-6">Вы ранее смотрели</p>
-        <div class="mb-20 flex justify-center">
+        <div class="mb-20 flex justify-center flex-wrap">
             <CardsItem
                 v-bind:cards="state.CardsYouEnjoy"
             />

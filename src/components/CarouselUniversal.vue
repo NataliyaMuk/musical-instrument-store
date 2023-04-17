@@ -1,5 +1,5 @@
 <template>
-  <div class="slider relative   h-[300px ] sm:h-[300px] md:h-[400px] lg:h-[500px]   w-full mt-[7px] mx-auto  mb-20 sm:w-[600px] md:w-[700px] lg:w-[900px] lg:mt-[30px] xl:w-[1100px]">
+  <div class="slider relative   h-[300px ] sm:h-[300px] md:h-[400px] lg:h-[500px]   w-full mt-[7px] mx-auto mb-6 lg:mb-20 sm:w-[600px] md:w-[700px] lg:w-[900px] lg:mt-[30px] xl:w-[1100px]">
     <div class="slider__track" :style="{ transform: `translateX(${-currentSlide * 100}%)` }">
       <div v-for="(slide, index) in photos" :key="index" class="slide">
         <img :src="require('../assets/'+ slide)" alt="Slide" class="slide__img">
