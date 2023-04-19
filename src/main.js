@@ -3,6 +3,7 @@ import App from './App.vue'
 import CatalogSection from '../src/components/CatalogSection.vue'
 import CarouselUniversal from './components/CarouselUniversal.vue'
 import CardsItem from '../src/components/CardsItem.vue'
+import CatalogDropdownDesktop from './components/CatalogDropdownDesktop.vue'
 import router from './router'
 import './assets/tailwind.css'
 
@@ -11,6 +12,8 @@ const app = createApp(App).use(router)
 app.component('CatalogSection', CatalogSection)
 
 app.component('CarouselUniversal', CarouselUniversal)
+
+app.component('CatalogDropdownDesktop', CatalogDropdownDesktop)
 
 app.component('CardsItem', CardsItem)
 

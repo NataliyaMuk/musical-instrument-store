@@ -96,64 +96,11 @@
 
     <!-- РАЗВЕРНУТЫЙ КАТАЛОГ DESKTOP HEADER -->
 
-    <div v-if="visibleCatalogDesktop" class="w-full bg-white h-[500px] shadow-lg shadow-gray-500/40 mb-10 flex justify-center p-10">
-      <div class="flex flex-col mr-32 text-[20px]">
-              <a class="mb-2">
-                Гитары
-              </a>
-              <a class="mb-2">
-                Укулеле
-              </a>
-              <a class="mb-2">
-                Клавишные инструменты
-              </a>
-              <a>
-                Ударные инструменты
-              </a>
-              <a>
-                Духовые инструменты
-              </a>
-              <a>
-                Аккордеоны, баяны, гармони
-              </a>
-              <a>
-                Смычковые инструменты
-              </a>
-              <a>
-                Микрофоны и радиосистемы
-              </a>
-              <a>
-                Студийное оборудование
-              </a>
-      </div>
 
-      <div class="flex flex-col text-[18px]">
-        <a href="#">
-          Акустические гитары
-        </a>
-        <a href="#">
-          Электрогитары
-        </a>
-        <a href="#">
-          Классические гитары
-        </a>
-        <a href="#">
-          Бас-гитары
-        </a>
-        <a href="#">
-          Струны
-        </a>
-        <a href="#">
-          Усилители для гитар
-        </a>
-        <a href="#">
-          Чехлы и кейсы
-        </a>
-        <a href="#">
-          Тюнеры и кейсы
-        </a>
-      </div>
-    </div>
+    <CatalogDropdownDesktop
+      v-bind:visibleCatalogDesktop="visibleCatalogDesktop"
+    />
+    
 
 
 
@@ -279,15 +226,21 @@
     </div>
 
 
-    <!-- <nav>
-       |
-      <router-link to="/catalogsection">Каталог/Раздел</router-link>
 
-    </nav> -->
+
+
+
+
+
     <main class="mb-auto">
       <router-view/>
     </main>
     
+
+
+
+
+
 
     <footer class="h-80 bg-gradient-to-t from-[#220000] to-[#580005] to-43.47% flex justify-between p-12 hidden lg:flex">
       <div class="flex flex-col justify-between">

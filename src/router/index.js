@@ -9,10 +9,11 @@ const routes = [
     component: MainPage
   },
   {
-    path: '/catalogsection',
+    path: '/catalogsection/:catalogcategory',
     name: 'CatalogSection',
     component: CatalogSection
   }
+
 ]
 
 const router = createRouter({

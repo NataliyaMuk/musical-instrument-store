@@ -20,8 +20,8 @@ export default {
     name: "CardsItem",
     props: {
         cards: {
-        type: Array
-        }
+            type: Array
+        },
   }
   }
 
