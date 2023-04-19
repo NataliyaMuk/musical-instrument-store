@@ -99,6 +99,7 @@
 
     <CatalogDropdownDesktop
       v-bind:visibleCatalogDesktop="visibleCatalogDesktop"
+      @updateVisibleCatalog="updateVisibleCatalog"
     />
     
 
@@ -417,6 +418,12 @@ import './assets/tailwind.css';
       visibleMenu: false,
       visibleCatalogDesktop: false,
     }),
+
+    methods: {
+      updateVisibleCatalog() {
+        this.visibleCatalogDesktop = false;
+      }
+    }
  }
 
 
