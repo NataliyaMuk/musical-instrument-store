@@ -5,7 +5,7 @@
         <CarouselUniversal v-bind:photos="state.photosCarousel"/>
         
         <p class="text-[24px] ml-20 mb-6 ">Возможно, вам понравится</p>
-        <div class="mb-20 flex justify-center flex-wrap">
+        <div class="mb-20 flex justify-start flex-wrap w-250 px-4 sm:px-[60px] md:px-[100px] lg:px-[90px] xl:px-[120px] 2xl:p-0 2xl:w-[1380px] mx-auto ">
             <CardsItem
                 v-bind:cards="state.CardsYouEnjoy"
             />
@@ -13,7 +13,7 @@
     
     
         <p class="text-[24px] ml-20 mb-6">Вы ранее смотрели</p>
-        <div class="mb-20 flex justify-center flex-wrap">
+        <div class="mb-20 flex justify-start flex-wrap w-250 px-4 sm:px-[60px] md:px-[100px] lg:px-[90px] xl:px-[120px] 2xl:p-0 2xl:w-[1380px] mx-auto ">
             <CardsItem
                 v-bind:cards="state.CardsYouEnjoy"
             />
