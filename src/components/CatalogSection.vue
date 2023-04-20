@@ -1,5 +1,9 @@
 <template>
     <div id="CatalogSection">
+
+
+        <!-- ХЛЕБНЫЕ КРОШКИ -->
+
         <div class="mt-4 ml-8 mb-8">
             <div class="inline">
                 <router-link to="/">
@@ -11,7 +15,10 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-[1fr_5fr] gap-4 overflow-clip text-[18px]">
+
+        <!-- СЕКЦИЯ КАТАЛОГА DESKTOP -->
+
+        <div class="grid grid-cols-[1fr_5fr] gap-4 overflow-clip text-[18px] hidden sm:grid">
             <div class="ml-8">
                 <p class="mb-2 text-[22px]">
                     Гитары
@@ -51,6 +58,63 @@
                 </div>
             </div>
         </div>
+
+
+
+
+
+
+
+
+        <!-- СЕКЦИЯ КАТАЛОГА МОБИЛЬНАЯ С ФИЛЬТРАМИ И СОРТИРОВКОЙ -->
+
+        <div class="flex flex-col sm:hidden">
+
+            <div class="flex justify-around mb-10">
+                <div>
+                    <select id="countries" class="h-12 w-[130px]  border border-black text-black text-[16px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
+                        <option class="text-[10px]"  selected>Фильтры</option>
+
+                        <option class="text-[10px]"  value="US">United States</option>
+                        <option class="text-[10px]"  value="CA">Canada</option>
+                        <option class="text-[10px]"  value="FR">France</option>
+                        <option class="text-[10px]"  value="DE">Germany</option>
+                    </select>
+                </div>
+                <div>
+                    <select id="countries" class="h-12 w-[170px]  border border-black text-black text-[16px] rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
+                        <option class="text-[10px]"  selected>По популярности</option>
+
+                        <option class="text-[10px]"  value="US">United States</option>
+                        <option class="text-[10px]"  value="CA">Canada</option>
+                        <option class="text-[10px]"  value="FR">France</option>
+                        <option class="text-[10px]"  value="DE">Germany</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+            <div> <!-- НАЧИНАЯ С :SM ИДЕТ ДЕСКТОР ВЕРСИЯ  -->
+                <div class="mb-20 flex flex-col items-center ">
+                    <CardsItem
+                        v-bind:cards="filteredProductsByCategory"
+                    />
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     </div>

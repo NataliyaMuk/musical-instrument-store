@@ -2,6 +2,8 @@
   <div>
   <div class="flex flex-col h-screen justify-between">
 
+
+  <!-- ВЕРСИЯ ХЕДЕРА DESKTOP -->
       <header class="h-[180px] bg-gradient-to-b from-[#220000] to-[#580005] to-43.47% p-10 hidden xl:block">
       <nav class="h-full">
         <div class="flex flex-row">
