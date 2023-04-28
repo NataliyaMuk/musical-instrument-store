@@ -1,43 +1,56 @@
 <template>
     <h2>Страница продукта</h2>
     <div class="info-wrapper">
-        <div class="photo-wrapper">
-            <div class="img-wrapper"><img :src="require('../assets/' + prodPhoto)" class="main-img"></div>
-            <div class="scroll-wrapper">
-                <carousel :items-to-show="4">
-                    <slide v-for="item in photoList" :key="item">
-                        <button @click="changePhoto(item)"><img :src="require('../assets/' + item)" alt=""></button>
-                    </slide>
-                    <template #addons>
-                    <navigation />
-                    <pagination />
-                    </template>
-                </carousel>
-            </div>
-        </div>
-        <div class="cta-info">
-            <div class="cta-wrapper">
-                <p class="price">2222 руб.</p>
-                <div class="buttons">
-                    <button class="cta-btn">В избранное</button>
-                    <button class="cta-btn">В корзину</button>
+        <div class="info-wrapper__about about">
+            <div class="about__photo photo">
+                <div class="photo__img-wrapper"><img :src="require('../assets/' + prodPhoto)" class="main-img"></div>
+                <div class="photo__scroll-wrapper">
+                    <carousel :items-to-show="4">
+                        <slide v-for="item in photoList" :key="item">
+                            <button @click="changePhoto(item)"><img :src="require('../assets/' + item)" alt=""></button>
+                        </slide>
+                        <template #addons>
+                        <navigation />
+                        <pagination />
+                        </template>
+                    </carousel>
                 </div>
             </div>
-            <div class="prod-info" >
-                <button @click="char" id="char" class="toggle-btn active">Описание</button>
-                <button @click="desc" id="desc" class="toggle-btn">Характеристики</button>
-                <p class="info-desc" v-if="show == 0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dignissim id tortor ac mattis. Suspendisse lacinia vulputate nibh eu pharetra. Vestibulum consectetur auctor tellus, nec placerat ipsum tincidunt in. Nulla tempus sollicitudin ligula et congue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi gravida, augue eu eleifend facilisis, est sapien lobortis urna, in aliquam velit ligula vel dolor. Duis ornare vulputate mauris sed tincidunt. Aliquam erat volutpat.
-                </p>
-                <p class="info-char" v-if="show == 1">ghdxfghdfgdfgdfg</p>
+            <div class="about__cta-info">
+                <div class="cta-wrapper">
+                    <p class="price">2222 руб.</p>
+                    <div class="buttons">
+                        <button class="cta-btn">В избранное</button>
+                        <button class="cta-btn">В корзину</button>
+                    </div>
+                </div>
+                <div class="prod-info" >
+                    <button @click="char" id="char" class="toggle-btn active">Описание</button>
+                    <button @click="desc" id="desc" class="toggle-btn">Характеристики</button>
+                    <p class="info-desc" v-if="show == 0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dignissim id tortor ac mattis. Suspendisse lacinia vulputate nibh eu pharetra. Vestibulum consectetur auctor tellus, nec placerat ipsum tincidunt in. Nulla tempus sollicitudin ligula et congue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi gravida, augue eu eleifend facilisis, est sapien lobortis urna, in aliquam velit ligula vel dolor. Duis ornare vulputate mauris sed tincidunt. Aliquam erat volutpat.
+                    </p>
+                    <p class="info-char" v-if="show == 1">ghdxfghdfgdfgdfg</p>
+                </div>
             </div>
         </div>
         <div class="similar">
-            <p>Похожие товары</p>
+            <p class="similar__title">Похожие товары</p>
             <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li v-for="item in CardsYouEnjoy" :key="item.id" class="similar__item">
+                    <img :src="require('../assets/' + item.img)" alt="">
+                    <p>{{ item.name }}</p>
+                    <p>{{ item.price }}</p>
+                </li>
+            </ul>
+        </div>
+        <div class="comment">
+            <p class="comment__title">Отзывы</p>
+            <ul>
+                <li v-for="item in commentList" :key="item.id" class="comment__item">
+                    <p class="comment__name">{{ item.name }}</p>
+                    <p class="comment__rate">Оценка: </p>
+                    <p class="">{{ item.text }}</p>
+                </li>
             </ul>
         </div>
     </div>
@@ -47,12 +60,24 @@
 
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
+
 export default {
     data() {
         return {
             photoList: ['prod1-1.jpg', 'prod1-2.jpg', 'prod1-3.jpg', 'prod1-4.jpg'],
             prodPhoto: 'prod1-0.jpg',
-            show: 0
+            show: 0,
+            CardsYouEnjoy: [
+                { id: 1, name: "Барабаны", img: "baraban-black.png", price: "13999 р" },
+                { id: 2, name: "Гитара", img: "gitara.png", price: "12999 р" },
+                { id: 3, name: "Баян", img: "bayan.png", price: "2999 р" },
+                { id: 4, name: "Синтезатор", img: "cintezator.png", price: "10999 р" },
+                // { id: 5, name: "Барабаны", img: "baraban-green.png", price: "13999 р" },
+            ],
+            commentList: [{name: 'Боренька', text: 'Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош'},
+            {name: 'Боренька', text: 'Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош'},
+            {name: 'Боренька', text: 'Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош'}
+            ],
         }
     },
     components: {
@@ -100,7 +125,7 @@ h2 {
     gap:  20px;
 }
 
-.img-wrapper {
+.photo__img-wrapper {
     max-width: 372px;
     min-height: 415px;
     border: 1px solid #000000;
@@ -145,7 +170,7 @@ h2 {
     margin-left: 20px;
 }
 
-.cta-info {
+.about__cta-info {
     max-width: 372px;
 }
 
@@ -160,19 +185,93 @@ h2 {
     text-decoration: underline;
 }
 
+.similar {
+    max-width: 372px;
+}
+
+.similar ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.similar__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 39px;
+    margin-bottom: 20px;
+}
+
+.similar__item {
+    max-width: 150px;
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    min-height: 200px;
+    margin-bottom: 25px;
+}
+
+.similar__item img {
+    border-radius: 15px 15px 0 0;
+    margin-bottom: 10px;
+}
+
+.comment {
+    max-width: 372px;
+    width: 100%;
+}
+
+.comment__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 39px;
+    margin-bottom: 20px;
+}
+
+.comment__name, .comment__rate {
+    font-weight: bold;
+}
+
+.comment__item {
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 25px 30px;
+    margin-bottom: 20px;
+}
+
+.about__photo {
+        max-width: 372px;
+        width: 100%;
+    }
+
 @media (min-width: 1000px) {
     .info-wrapper {
         max-width: 950px;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
     }
-    .cta-info {
+
+    .about__cta-info {
         display: flex;
         flex-direction: column;
         gap: 30px;
         max-width: 500px;
         width: 100%;
+    }
+
+    .comment {
+    max-width: 900px;
+}
+
+    .info-wrapper__about {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
 }
 </style>
