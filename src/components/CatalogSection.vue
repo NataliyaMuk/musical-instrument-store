@@ -50,10 +50,10 @@
             </div>
 
 
-            <div> <!-- НАЧИНАЯ С :SM ИДЕТ ДЕСКТОР ВЕРСИЯ  -->
+            <div> 
                 <div class="mb-20 flex justify-start flex-wrap w-250 px-[70px] md:px-[20px] lg:px-[4px] xl:px-[120px] 2xl:px-[120px]  mx-auto">
-                    <CardsItem
-                        v-bind:cards="filteredProductsByCategory"
+                    <CardsItem 
+                        v-bind:cards="instrumentsList"
                     />
                 </div>
             </div>
@@ -100,20 +100,11 @@
                     <CardsItem
                         v-bind:cards="filteredProductsByCategory"
                     />
+
+                    
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -133,12 +124,20 @@ import productsData from "../../public/products.json";
             }
         },
 
+        mounted() {
+            this.$store.dispatch('GET_INSTRUMENTS');
+        },
+
+
         computed: {
+            instrumentsList() {
+                return this.$store.getters.INSTRUMENTS;
+            },
+
             filteredProductsByCategory() {
                 return this.productsAll.filter(item => item.category === this.catalogSectionParam);
             }
-        }
+        },
 
-    
     }
 </script>
