@@ -3,11 +3,15 @@
     <div class="info-wrapper">
         <div class="info-wrapper__about about">
             <div class="about__photo photo">
-                <div class="photo__img-wrapper"><img :src="require('../assets/' + prodPhoto)" class="main-img"></div>
+                <div class="photo__img-wrapper">
+                    <img :src="require('../assets/' + prodPhoto)" class="main-img">
+                </div>
                 <div class="photo__scroll-wrapper">
                     <carousel :items-to-show="4">
                         <slide v-for="item in photoList" :key="item">
-                            <button @click="changePhoto(item)"><img :src="require('../assets/' + item)" alt=""></button>
+                            <button @click="changePhoto(item)">
+                                <img :src="require('../assets/' + item)" alt="">
+                            </button>
                         </slide>
                         <template #addons>
                         <navigation />
@@ -43,16 +47,7 @@
                 </li>
             </ul>
         </div>
-        <div class="comment">
-            <p class="comment__title">Отзывы</p>
-            <ul>
-                <li v-for="item in commentList" :key="item.id" class="comment__item">
-                    <p class="comment__name">{{ item.name }}</p>
-                    <p class="comment__rate">Оценка: </p>
-                    <p class="">{{ item.text }}</p>
-                </li>
-            </ul>
-        </div>
+        <CommentSection />
     </div>
 </template>
 
@@ -60,6 +55,7 @@
 
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
+import CommentSection from '@/components/CommentSection.vue';
 
 export default {
     data() {
@@ -74,10 +70,6 @@ export default {
                 { id: 4, name: "Синтезатор", img: "cintezator.png", price: "10999 р" },
                 // { id: 5, name: "Барабаны", img: "baraban-green.png", price: "13999 р" },
             ],
-            commentList: [{name: 'Боренька', text: 'Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош'},
-            {name: 'Боренька', text: 'Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош'},
-            {name: 'Боренька', text: 'Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош Харош'}
-            ],
         }
     },
     components: {
@@ -85,6 +77,7 @@ export default {
         Slide,
         Pagination,
         Navigation,
+        CommentSection,
     },
     methods: {
         char() {
@@ -219,30 +212,6 @@ h2 {
     margin-bottom: 10px;
 }
 
-.comment {
-    max-width: 372px;
-    width: 100%;
-}
-
-.comment__title {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 39px;
-    margin-bottom: 20px;
-}
-
-.comment__name, .comment__rate {
-    font-weight: bold;
-}
-
-.comment__item {
-    border: 1px solid black;
-    border-radius: 15px;
-    padding: 25px 30px;
-    margin-bottom: 20px;
-}
-
 .about__photo {
         max-width: 372px;
         width: 100%;
@@ -264,9 +233,9 @@ h2 {
         width: 100%;
     }
 
-    .comment {
-    max-width: 900px;
-}
+    .similar {
+        max-width: 900px;
+    }
 
     .info-wrapper__about {
         display: flex;
