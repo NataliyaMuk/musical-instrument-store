@@ -7,13 +7,22 @@
             <input type="email" placeholder="email@.gmail.com">
             <input type="password" placeholder="Введите пароль">
             <input type="password" placeholder="Повторите пароль">
-            <button class="cta-btn">Зарегистрироваться</button>
+            <button class="cta-btn" @click="reg()">Зарегистрироваться</button>
         </form>
     </div>
 </template>
 
 <script>
-
+export default {
+    data() {
+        return {
+        }
+    },
+    methods: {
+        reg() {
+        },
+    }
+}
 </script>
 
 <style scoped>
