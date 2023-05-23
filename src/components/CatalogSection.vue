@@ -53,7 +53,7 @@
             <div> 
                 <div class="mb-20 flex justify-start flex-wrap w-250 px-[70px] md:px-[20px] lg:px-[4px] xl:px-[120px] 2xl:px-[120px]  mx-auto">
                     <CardsItem 
-                        v-bind:cards="instrumentsList"
+                        v-bind:cards="filteredProductsByCategory"
                     />
                 </div>
             </div>
@@ -113,30 +113,25 @@
     
 <script>
 
-import productsData from "../../public/products.json";
 
     export default {
         name: "CatalogSection",
         data(){
             return {
                 catalogSectionParam: this.$route.params.catalogcategory,
-                productsAll: productsData
             }
         },
 
         mounted() {
-            this.$store.dispatch('GET_INSTRUMENTS');
+            
         },
 
 
         computed: {
-            instrumentsList() {
-                return this.$store.getters.INSTRUMENTS;
+            filteredProductsByCategory() {
+                return this.$store.getters.INSTRUMENTS
             },
 
-            filteredProductsByCategory() {
-                return this.productsAll.filter(item => item.category === this.catalogSectionParam);
-            }
         },
 
     }

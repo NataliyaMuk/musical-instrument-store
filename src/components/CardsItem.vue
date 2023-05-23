@@ -4,7 +4,10 @@
             :key="card.article"
             :title="card.name"
     >
-        <!-- <img :src="require('../assets/'+ card.img)" alt="" class="object-cover object-center w-full rounded-md  dark:bg-gray-500"> -->
+        <img 
+                class="object-cover object-center w-full rounded-md  dark:bg-gray-500"
+                :src="`${card.main_img}`"
+        />
 
         <div class="mt-6 mb-2">
             <span class="block text-xs font-medium tracking-widest uppercase dark:text-violet-400">{{ card.name }}</span>

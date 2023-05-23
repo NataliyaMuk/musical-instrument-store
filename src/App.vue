@@ -15,7 +15,7 @@
 
           <div class="w-full text-white text-[20px] flex flex-col justify-between mr-12">
             <div class="flex justify-end">
-              <router-link to="/" class="mr-2">
+              <router-link to="/" class="mr-6">
                 <p>
                   Главная
                 </p>
@@ -29,9 +29,11 @@
                 Доставка и оплата
               </p>
 
-              <p class="mr-6">
-                Блог
-              </p>
+              <router-link to="/blog" class="mr-6">
+                <p>
+                  Блог
+                </p>
+              </router-link>
 
               <p>
                 Контакты
@@ -78,15 +80,17 @@
                 </svg>
               </a>
 
+              <router-link to="/login" class="mr-6">
+                <p class="mr-8">
+                  Вход
+                </p>
+              </router-link>
 
-              <p class="mr-8">
-                Вход
-              </p>
-
-
-              <p >
-                Регистрация
-              </p>
+              <router-link to="/register" class="mr-6">
+                <p >
+                  Регистрация
+                </p>
+              </router-link>
 
 
             </div>
@@ -163,12 +167,20 @@
         <p class="text-[24px] mt-8 mb-3">
           +7(915)111-11-11
         </p>
+
         <p class="mb-3">
-          Вход | Регистрация
+          <router-link to="/login" class="mr-3">
+            Вход | 
+          </router-link>
+          
+          <router-link to="/register" class="mr-3">
+            Регистрация
+          </router-link>
         </p>
-        <p class="mb-3">
-          Главная
-        </p>
+
+        <router-link to="/" class="mb-3">
+            Главная
+        </router-link>
 
 
         <div class="flex mb-3">
@@ -223,9 +235,11 @@
         <p class="mb-3">
           Доставка и оплата
         </p>
-        <p>
+
+        <router-link to="/blog" class="mr-3">
           Блог
-        </p>
+        </router-link>
+
     </div>
 
 

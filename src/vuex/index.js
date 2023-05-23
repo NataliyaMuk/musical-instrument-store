@@ -20,7 +20,15 @@ const store = createStore({
             let {data} = await Axios.get('http://localhost:8000/api/v1/instruments/');
             context.commit('SET_INSTRUMENTS', data.results);
         },
+        GET_EMPLOYEES_NEW_PAGE: async (context, numberPage) => {
+            let {data} = await Axios.get(`http://localhost:8000/api/v1/instruments/?page=${numberPage}`);
+            context.commit('SET_INSTRUMENTS', data.results);
+        },
 
+        GET_INSTRUMENTS_FILTER_CATEGORY: async (context, cat) => {
+            let {data} = await Axios.get(`http://localhost:8000/api/v1/instruments/?category=${cat}`);
+            context.commit('SET_INSTRUMENTS', data.results);
+        },
     }
   })
 
