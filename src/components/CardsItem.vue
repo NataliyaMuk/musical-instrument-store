@@ -5,7 +5,7 @@
             :title="card.name"
     >
         <img 
-                class="object-cover object-center w-full rounded-md  dark:bg-gray-500"
+                class="object-cover object-center w-full rounded-md  dark:bg-gray-500 h-52"
                 :src="`${card.main_img}`"
         />
 

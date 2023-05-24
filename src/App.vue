@@ -169,16 +169,16 @@
         </p>
 
         <p class="mb-3">
-          <router-link to="/login" class="mr-3">
+          <router-link to="/login" class="mr-3" v-on:click="visibleMenu=!visibleMenu">
             Вход | 
           </router-link>
           
-          <router-link to="/register" class="mr-3">
+          <router-link to="/register" class="mr-3" v-on:click="visibleMenu=!visibleMenu">
             Регистрация
           </router-link>
         </p>
 
-        <router-link to="/" class="mb-3">
+        <router-link to="/" class="mb-3" v-on:click="visibleMenu=!visibleMenu">
             Главная
         </router-link>
 
@@ -201,33 +201,25 @@
               </button>
         </div>
         <div v-if="visibleCatalog" class="flex flex-col items-start mb-8 ml-6">
-              <a class="mb-2">
+              <a v-on:click="setCategory(1);visibleMenu=!visibleMenu" class="mb-2">
                 Гитары
               </a>
-              <a class="mb-2">
+              <a v-on:click="setCategory(2);visibleMenu=!visibleMenu" class="mb-2">
                 Укулеле
               </a>
-              <a class="mb-2">
+              <a v-on:click="setCategory(3);visibleMenu=!visibleMenu" class="mb-2">
                 Клавишные инструменты
               </a>
-              <a>
+              <a v-on:click="setCategory(4);visibleMenu=!visibleMenu" class="mb-2">
                 Ударные инструменты
               </a>
-              <a>
+              <a v-on:click="setCategory(5);visibleMenu=!visibleMenu" class="mb-2">
                 Духовые инструменты
               </a>
-              <a>
+              <a v-on:click="setCategory(6);visibleMenu=!visibleMenu" class="mb-2">
                 Аккордеоны, баяны, гармони
               </a>
-              <a>
-                Смычковые инструменты
-              </a>
-              <a>
-                Микрофоны и радиосистемы
-              </a>
-              <a>
-                Студийное оборудование
-              </a>
+
           </div>
 
 
@@ -236,7 +228,7 @@
           Доставка и оплата
         </p>
 
-        <router-link to="/blog" class="mr-3">
+        <router-link to="/blog" class="mr-3" v-on:click="visibleMenu=!visibleMenu">
           Блог
         </router-link>
 
@@ -253,6 +245,13 @@
       <router-view/>
     </main>
     
+
+
+
+
+
+
+
 
 
 
@@ -438,7 +437,14 @@ import './assets/tailwind.css';
     methods: {
       updateVisibleCatalog() {
         this.visibleCatalogDesktop = false;
-      }
+      },
+
+      setCategory(cat) {
+          this.selectCategory = cat;
+          this.$router.push({ name: 'CatalogSection', params: { catalogcategory: this.selectCategory } })
+          this.$store.dispatch('GET_INSTRUMENTS_FILTER_CATEGORY', cat);
+          this.$store.dispatch('GET_SUBCATEGORY_FILTER_CATEGORY', cat);
+      },
     }
  }
 
