@@ -18,7 +18,7 @@ const routes = [
     component: CatalogSection
   },
   {
-    path: '/product',
+    path: '/product/:id',
     name: 'ProductPage',
     component: ProductPage
   },

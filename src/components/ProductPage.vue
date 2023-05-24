@@ -1,16 +1,16 @@
 <template>
-    <h2>Страница продукта</h2>
+    <h2>Страница продукта {{ prodId }}</h2>
     <div class="info-wrapper">
         <div class="info-wrapper__about about">
             <div class="about__photo photo">
                 <div class="photo__img-wrapper">
-                    <img :src="require('../assets/' + prodPhoto)" class="main-img">
+                    <img :src="require('../assets/' + prodPhoto)"  :alt="`${prodPhoto}`" class="main-img">
                 </div>
                 <div class="photo__scroll-wrapper">
                     <carousel :items-to-show="4">
                         <slide v-for="item in photoList" :key="item">
                             <button @click="changePhoto(item)">
-                                <img :src="require('../assets/' + item)" alt="">
+                                <img :src="require('../assets/' + item)" :alt="`${prodPhoto}`">
                             </button>
                         </slide>
                         <template #addons>
@@ -41,7 +41,7 @@
             <p class="similar__title">Похожие товары</p>
             <ul>
                 <li v-for="item in CardsYouEnjoy" :key="item.id" class="similar__item">
-                    <img :src="require('../assets/' + item.img)" alt="">
+                    <img :src="require('../assets/' + item.img)" :alt="`${item.img}`" class="similar_img">
                     <p>{{ item.name }}</p>
                     <p>{{ item.price }}</p>
                 </li>
@@ -96,6 +96,11 @@ export default {
         },
         changePhoto(name) {
             this.prodPhoto = name;
+        },
+    },
+    computed: {
+        prodId () {
+            return this.$route.params.id;
         },
     }
 }
