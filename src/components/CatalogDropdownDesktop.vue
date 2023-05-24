@@ -67,6 +67,7 @@
           this.selectCategory = cat;
           this.$router.push({ name: 'CatalogSection', params: { catalogcategory: this.selectCategory } })
           this.$store.dispatch('GET_INSTRUMENTS_FILTER_CATEGORY', cat);
+          this.$store.dispatch('GET_SUBCATEGORY_FILTER_CATEGORY', cat);
         },
         
       }

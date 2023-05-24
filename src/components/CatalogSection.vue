@@ -20,33 +20,14 @@
 
         <div class="grid grid-cols-[1fr_5fr] gap-4 overflow-clip text-[18px] hidden sm:grid">
             <div class="ml-8">
-                <p class="mb-2 text-[22px]">
-                    Гитары
-                </p>
-                <p class="mb-2">
-                    Акустические гитары
-                </p>
-                <p class="mb-2">
-                    Электрогитары
-                </p>
-                <p class="mb-2">
-                    Классические гитары
-                </p>
-                <p class="mb-2">
-                    Бас-гитары
-                </p>
-                <p class="mb-2">
-                    Струны
-                </p>
-                <p class="mb-2">
-                    Усилители для гитар
-                </p>
-                <p class="mb-2">
-                    Чехлы и кейсы
-                </p>
-                <p class="mb-2">
-                    Тюнеры и метрономы
-                </p>
+                <div
+                    v-for="sub in subcategories"
+                    :key="sub.id"
+                >
+                    <button v-on:click="setSubcategory(sub.category_id, sub.id)" class="mb-3 block" >
+                        {{ sub.name }}
+                    </button>
+                </div> 
             </div>
 
 
@@ -122,16 +103,20 @@
             }
         },
 
-        mounted() {
-            
+        methods: {
+            setSubcategory(cat, sub) {
+                this.$store.dispatch('GET_INSTRUMENTS_FILTER_SUBCATEGORY', {cat: cat, sub: sub });
+            }
         },
-
 
         computed: {
             filteredProductsByCategory() {
                 return this.$store.getters.INSTRUMENTS
             },
 
+            subcategories() {
+                return this.$store.getters.SUBCATEGORY
+            },
         },
 
     }
