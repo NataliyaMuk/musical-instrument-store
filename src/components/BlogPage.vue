@@ -1,7 +1,6 @@
 <template>
     <div class="wrapper">
         <h2>Блог</h2>
-        <!-- <div class="news-card"></div> -->
         <ul class="cards-list">
             <li v-for="item in newsList" :key="item.id" class="news-card">
                 <img :src="require('../assets/' + item.img)" alt="img">

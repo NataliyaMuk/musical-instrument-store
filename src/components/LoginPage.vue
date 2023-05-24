@@ -4,13 +4,22 @@
         <form action="">
             <input type="email" placeholder="email@.gmail.com">
             <input type="password" placeholder="Введите пароль">
-            <button class="cta-btn">Войти</button>
+            <button class="cta-btn" @click="login()">Войти</button>
         </form>
     </div>
 </template>
 
 <script>
-
+export default {
+    data() {
+        return {
+        }
+    },
+    methods: {
+        login() {
+        },
+    }
+}
 </script>
 
 <style scoped>
