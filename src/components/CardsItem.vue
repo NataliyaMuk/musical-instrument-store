@@ -4,6 +4,7 @@
             :key="card.article"
             :title="card.name"
     >
+    <router-link :to="{name: 'ProductPage', params: {id: card.article}}">
         <img 
                 class="object-cover object-center w-full rounded-md  dark:bg-gray-500"
                 :src="`${card.main_img}`"
@@ -13,6 +14,7 @@
             <span class="block text-xs font-medium tracking-widest uppercase dark:text-violet-400">{{ card.name }}</span>
         </div>
         <p class="dark:text-gray-100">{{ card.price }}</p>
+    </router-link>
     </div>
 </template>
 
