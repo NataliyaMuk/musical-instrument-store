@@ -1,6 +1,6 @@
 <template>
-    <h2>Вход</h2>
     <div class="login">
+        <h2>Вход</h2>
         <form action="">
             <input type="email" placeholder="email@.gmail.com">
             <input type="password" placeholder="Введите пароль">
