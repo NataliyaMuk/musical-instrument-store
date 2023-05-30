@@ -24,23 +24,23 @@ const store = createStore({
     },
     actions: {
         GET_INSTRUMENTS: async (context) => {
-            let {data} = await Axios.get('http://localhost:8000/api/v1/instruments/');
+            let {data} = await Axios.get('http://localhost:8086/api/v1/instruments/');
             context.commit('SET_INSTRUMENTS', data.results);
         },
 
         GET_INSTRUMENTS_FILTER_CATEGORY: async (context, cat) => {
-            let {data} = await Axios.get(`http://localhost:8000/api/v1/instruments/?category=${cat}`);
+            let {data} = await Axios.get(`http://localhost:8086/api/v1/instruments/?category=${cat}`);
             context.commit('SET_INSTRUMENTS', data.results);
         },
 
         GET_SUBCATEGORY_FILTER_CATEGORY: async (context, cat) => {
-            let {data} = await Axios.get(`http://localhost:8000/api/v1/subcategory/?id=${cat}`);
+            let {data} = await Axios.get(`http://localhost:8086/api/v1/subcategory/?id=${cat}`);
             context.commit('SET_SUBCATEGORY', data);
         },
 
         GET_INSTRUMENTS_FILTER_SUBCATEGORY: async (context, input) => {
 
-            let {data} = await Axios.get(`http://localhost:8000/api/v1/instruments/?category=${input.cat}&subcategory=${input.sub}`);
+            let {data} = await Axios.get(`http://localhost:8086/api/v1/instruments/?category=${input.cat}&subcategory=${input.sub}`);
             context.commit('SET_INSTRUMENTS', data.results);
         },
 
