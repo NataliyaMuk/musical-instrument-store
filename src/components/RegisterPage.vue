@@ -1,38 +1,36 @@
 <template>
-    <!-- <h2>Регистрация</h2>
-    <div class="register">
-        <form action="">
-            <input type="text" placeholder="Имя">
-            <input type="text" placeholder="Фамилия">
-            <input type="email" placeholder="email@.gmail.com">
-            <input type="password" placeholder="Введите пароль">
-            <input type="password" placeholder="Повторите пароль">
-            <button class="cta-btn" @click="reg()">Зарегистрироваться</button>
-        </form>
-    </div> -->
     <div class="register">
         <h2 v-if="section < 5">Регистрация</h2>
         <form id="regForm" action="" v-if="section >= 1 && section <= 4">
-            <!-- One "tab" for each step in the form: -->
-            <div class="tab" v-if="section == 1">Name:
-                <p>
-                    <input placeholder="First name..." oninput="this.className = ''">
+            <div class="tab" v-show="section == 1">
+                <p class="form-title">
+                    ФИО:
                 </p>
                 <p>
-                    <input placeholder="Last name..." oninput="this.className = ''">
-                </p>
-            </div>
-
-            <div class="tab" v-if="section == 2">Contact Info:
-                <p>
-                    <input placeholder="E-mail..." oninput="this.className = ''">
+                    <input placeholder="Имя" oninput="this.className = ''">
                 </p>
                 <p>
-                    <input placeholder="Phone..." oninput="this.className = ''">
+                    <input placeholder="Фамилия" oninput="this.className = ''">
+                </p>
+                <p>
+                    <input placeholder="Отчество" oninput="this.className = ''">
                 </p>
             </div>
-
-            <div class="tab" v-if="section == 3">Birthday:
+            <div class="tab" v-show="section == 2">
+                <p class="form-title">
+                    Контактная информация:
+                </p>
+                <p>
+                    <input name="email" placeholder="example@mail.ru" oninput="this.className = ''" required>
+                </p>
+                <p>
+                    <input placeholder="+79157779944" oninput="this.className = ''">
+                </p>
+            </div>
+            <div class="tab" v-show="section == 3">
+                <p class="form-title">
+                    Дата рождения:
+                </p>
                 <p>
                     <input placeholder="dd" oninput="this.className = ''">
                 </p>
@@ -43,30 +41,30 @@
                     <input placeholder="yyyy" oninput="this.className = ''">
                 </p>
             </div>
-
-            <div class="tab" v-if="section == 4">Login Info:
-                <p>
-                    <input placeholder="Username..." oninput="this.className = ''">
+            <div class="tab" v-show="section == 4">
+                <p class="form-title">
+                    Логин и пароль:
                 </p>
                 <p>
-                    <input placeholder="Password..." oninput="this.className = ''">
+                    <input placeholder="Логин" oninput="this.className = ''">
+                </p>
+                <p>
+                    <input placeholder="Пароль" oninput="this.className = ''">
                 </p>
             </div>
-
-            <div v-if="section <= 4">
-                <button type="button" id="prevBtn" @click="prev()">Previous</button>
-                <button type="button" id="nextBtn" @click="next()">Next</button>
+            <div v-show="section <= 4" class="control">
+                <button type="button" class="prev" id="prevBtn" @click="prev()">Назад</button>
+                <button type="button" class="next" v-show="section < 4" id="nextBtn" @click="next()">Вперед</button>
+                <button type="submit" class="next" v-show="section == 4" id="nextBtn" @click="next()">Отправить</button>
             </div>
-
-            <!-- Circles which indicates the steps of the form: -->
-            <div v-if="section <= 4">
+            <div v-show="section <= 4">
                 <button type="button" id="1" class="step active" @click="swith(1)"></button>
                 <button type="button" id="2" class="step" @click="swith(2)"></button>
                 <button type="button" id="3" class="step" @click="swith(3)"></button>
                 <button type="button" id="4" class="step" @click="swith(4)"></button>
             </div>
         </form>
-        <p v-if="section == 5" class="end">Вы зарегистрированы!</p>
+        <p v-show="section == 5" class="end">Вы зарегистрированы!</p>
     </div>
 </template>
 
@@ -138,7 +136,6 @@ h2 {
 }
 
 form {
-    min-height: 400px;
     max-width: 372px;
     display: flex;
     flex-direction: column;
@@ -148,6 +145,41 @@ form {
     padding: 20px 0;
     margin: 0 auto;
     text-align: center;
+}
+
+.form-title {
+    margin-bottom: 20px;
+}
+
+.control {
+    max-width: 340px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.next {
+    background-color: #FCBA06;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 2px solid #FCBA06;
+}
+
+.prev {
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 2px solid #FCBA06;
+}
+
+.next:hover {
+    background-color: white;
+    transition: .3s;
+}
+
+.prev:hover {
+    background-color: #FCBA06;
+    transition: .3s;
 }
 
 input {
