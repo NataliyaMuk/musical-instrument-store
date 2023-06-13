@@ -64,11 +64,14 @@
                 <button type="button" id="4" class="step" @click="swith(4)"></button>
             </div>
         </form>
-        <p v-show="section == 5" class="end">Вы зарегистрированы!</p>
+        <p v-show="section == 5" class="end">Вы зарегистрированы! Подтвердите почту!</p>
     </div>
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
     data() {
         return {
@@ -77,7 +80,8 @@ export default {
         }
     },
     methods: {
-        next() {
+
+        async next() {
             if (this.section + 1 < 5) {
                 this.section += 1;
                 console.log(this.section);
@@ -86,8 +90,12 @@ export default {
                 this.prevActive = this.section;
             } else {
                 this.section += 1
+                const response = await axios.get(`http://localhost:8086/main`);
+                console.log(response.data);
             }
         },
+
+
         prev() {
             if (this.section - 1 > 0) {
                 this.section -= 1;
